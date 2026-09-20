@@ -52,7 +52,7 @@ Academic metrics update over days or weeks, so frequent checks are counterproduc
 ## 💳 Pricing & License
 
 * **Trial Period:** 7-day fully functional trial.
-* **Lifetime License:** **$4.99 USD** (One-time purchase, lifetime access, free automatic software updates).
+* **Lifetime License:** **$5 USD** (One-time purchase, lifetime access, free automatic software updates).
 
 ---
 
