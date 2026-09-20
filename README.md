@@ -48,7 +48,7 @@ Academic metrics update over days or weeks, so frequent checks are counterproduc
 > **Pro Tip:** Set the update interval to **12 hours** and enable *"Run at Windows Startup"*. The app will unobtrusively check your metrics twice daily and notify you only when changes are detected.
 
 
-<div style="color: #d9381e;">
+<div style="color: #DC143C;">
 
 **System Requirements & Security Notice:**
 * **Supported:** Windows 10 and Windows 11 (64-bit).
