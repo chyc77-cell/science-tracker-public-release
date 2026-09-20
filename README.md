@@ -7,7 +7,7 @@
 ## 🌟 Features & Quick Start Guide
 
 ### 1. Launching the App
-Run `ScienceTracker_Setup.exe`. The application starts silently and minimizes to your **Windows System Tray** (bottom-right corner near the clock). Look for the **"h"** icon.
+To install ScienceTracker, download and run `ScienceTracker_Setup.exe`, follow the on-screen setup wizard prompts, and click Finish to complete the installation. To launch ScienceTracker, open it from the Start Menu or Desktop shortcut. The application starts silently and minimizes to your **Windows System Tray** (bottom-right corner near the clock). Look for the **"h"** icon.
 
 ### 2. Configuration (First-Time Setup)
 1. Right-click the tray icon and select **Settings** (Налаштування).
