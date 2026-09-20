@@ -59,7 +59,7 @@ Academic metrics update over days or weeks, so frequent checks are counterproduc
 ## 📞 Support & Contact
 
 If you have questions, feedback, or need technical assistance with ScienceTracker:
-* **Email Support:** [support@example.com](mailto:rovalit@ukr.net) 
+* **Email Support:** [rovalit@ukr.net](mailto:rovalit@ukr.net) 
 * **GitHub Issues:** You can also open an issue directly in this repository.
 
 ---
