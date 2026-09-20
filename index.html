@@ -60,6 +60,36 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
         }
+        
+        /* Screenshots Section Grid */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .screenshot-item {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            border: 1px solid #cbd5e1;
+        }
+        .screenshot-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
         .pricing-card {
             text-align: center;
             border: 2px solid var(--primary);
@@ -92,6 +122,16 @@
         }
         .btn-success:hover {
             background-color: #15803d;
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-top: 15px;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
         }
         
         .donation-card {
@@ -141,13 +181,19 @@
         <p class="tagline">Desktop System Tray Application for Automated Academic Metrics Tracking</p>
     </header>
 
-    <!-- Download Section -->
+    <!-- Download & Documentation Hero -->
     <div class="download-hero">
         <h2>Try ScienceTracker Free</h2>
         <p>Download the latest version with a <strong>7-day full-featured trial period</strong> included.</p>
-        <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest" class="btn btn-success" target="_blank">
-            ⬇️ Download Latest Version (.exe)
-        </a>
+        <div style="margin-top: 15px;">
+            <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest" class="btn btn-success" target="_blank">
+                ⬇️ Download Latest Version (.exe)
+            </a>
+            <br>
+            <a href="https://github.com/chyc77-cell/science-tracker-public-release#readme" class="btn btn-outline" target="_blank">
+                📖 View Full Documentation & Setup Guide (README)
+            </a>
+        </div>
     </div>
 
     <section class="grid">
@@ -162,6 +208,18 @@
         <div class="card">
             <h3>🔄 Auto-Updates</h3>
             <p>Includes built-in silent background auto-updates directly from GitHub Releases.</p>
+        </div>
+    </section>
+
+    <!-- App Screenshots Section -->
+    <section class="screenshots-grid">
+        <div class="screenshot-item">
+            <img src="Screenshot 2026-09-20 150544.png" alt="ScienceTracker Statistics Overview">
+            <div class="screenshot-caption">📊 Statistics & Updates Overview</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="Screenshot 2026-09-20 150733.png" alt="ScienceTracker Settings Window">
+            <div class="screenshot-caption">⚙️ Settings & Platform Configuration</div>
         </div>
     </section>
 
