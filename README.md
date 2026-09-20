@@ -48,17 +48,14 @@ Academic metrics update over days or weeks, so frequent checks are counterproduc
 > **Pro Tip:** Set the update interval to **12 hours** and enable *"Run at Windows Startup"*. The app will unobtrusively check your metrics twice daily and notify you only when changes are detected.
 
 
-<div style="color: #FF0000;">
-
-**System Requirements & Security Notice:**
-* **Supported:** Windows 10 and Windows 11 (64-bit).
-* **Not supported:** Windows 7, 8, 8.1, or any 32-bit (x86) versions of Windows.
-
-Since the `.exe` file is built using PyInstaller and does not have a paid Code Signing Certificate, Windows SmartScreen may display a warning on the first launch: *"Windows protected your PC"* (*"Unknown Publisher"*).
-
-To run the app, click **More info** &rarr; **Run anyway**.
-
-</div>
+> [!CAUTION]
+> **System Requirements & First-Launch Notice**
+> * **Supported:** Windows 10 and Windows 11 (64-bit).
+> * **Not supported:** Windows 7, 8, 8.1, or any 32-bit (x86) versions of Windows.
+> 
+> Since the `.exe` file is built using PyInstaller and does not have a paid Code Signing Certificate, Windows SmartScreen may display a warning on the first launch: *"Windows protected your PC"* (*"Unknown Publisher"*).
+> 
+> **To run the app:** Click **More info** &rarr; **Run anyway**.
 ---
 
 ## 💳 Pricing & License
