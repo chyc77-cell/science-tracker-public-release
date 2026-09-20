@@ -7,7 +7,7 @@
 ## 🌟 Features & Quick Start Guide
 
 ### 1. Launching the App
-Run `ScienceTracker.exe` (or `python tracker_2_3.py` if running from source). The application starts silently and minimizes to your **Windows System Tray** (bottom-right corner near the clock). Look for the **"h"** icon.
+Run `ScienceTracker.exe`. The application starts silently and minimizes to your **Windows System Tray** (bottom-right corner near the clock). Look for the **"h"** icon.
 
 ### 2. Configuration (First-Time Setup)
 1. Right-click the tray icon and select **Settings** (Налаштування).
@@ -52,14 +52,14 @@ Academic metrics update over days or weeks, so frequent checks are counterproduc
 ## 💳 Pricing & License
 
 * **Trial Period:** 7-day fully functional trial.
-* **Lifetime License:** **$29.00 USD** (One-time purchase, lifetime access, free automatic software updates).
+* **Lifetime License:** **$4.99 USD** (One-time purchase, lifetime access, free automatic software updates).
 
 ---
 
 ## 📞 Support & Contact
 
 If you have questions, feedback, or need technical assistance with ScienceTracker:
-* **Email Support:** [support@example.com](mailto:support@example.com) *(Замініть на ваш діючий email)*
+* **Email Support:** [support@example.com](mailto:rovalit@ukr.net) 
 * **GitHub Issues:** You can also open an issue directly in this repository.
 
 ---
