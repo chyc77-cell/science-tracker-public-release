@@ -144,6 +144,59 @@
             font-size: 0.85rem;
         }
 
+
+        .license-delivery {
+            display: none;
+            margin: 24px 0 30px;
+            padding: 24px;
+            background: #ecfdf5;
+            border: 1px solid #86efac;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .license-delivery.show {
+            display: block;
+        }
+
+        .license-delivery.pending {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .license-delivery.error {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .license-key-box {
+            display: none;
+            margin: 16px auto 8px;
+            padding: 14px 16px;
+            max-width: 520px;
+            background: #ffffff;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 1.08rem;
+            font-weight: 700;
+            word-break: break-all;
+            user-select: all;
+        }
+
+        .license-key-box.show {
+            display: block;
+        }
+
+        .copy-license-btn {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .copy-license-btn.show {
+            display: inline-block;
+        }
+
         button.btn {
             border: none;
             font-family: inherit;
@@ -155,7 +208,149 @@
 
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <script>
+        const SCIENCETRACKER_PRICE_ID = "pri_01m34d8zhx7y0cpqrwmd5wg85f";
+        const LICENSE_API_BASE = "https://sciencetracker-license.chyc77.workers.dev";
+
+        let currentDeliveryToken = null;
+        let deliveryPollTimer = null;
+        let deliveryPollAttempts = 0;
+        const MAX_DELIVERY_POLL_ATTEMPTS = 60;
+
+        function makeDeliveryToken() {
+            const bytes = new Uint8Array(32);
+            crypto.getRandomValues(bytes);
+            return Array.from(bytes)
+                .map(b => b.toString(16).padStart(2, "0"))
+                .join("");
+        }
+
+        function setDeliveryState(kind, title, message) {
+            const box = document.getElementById("license-delivery");
+            const titleEl = document.getElementById("license-delivery-title");
+            const msgEl = document.getElementById("license-delivery-message");
+            const keyEl = document.getElementById("license-key");
+            const copyBtn = document.getElementById("copy-license-btn");
+
+            box.classList.remove("pending", "error");
+            box.classList.add("show");
+
+            if (kind === "pending") box.classList.add("pending");
+            if (kind === "error") box.classList.add("error");
+
+            titleEl.textContent = title;
+            msgEl.textContent = message;
+
+            if (kind !== "ready") {
+                keyEl.classList.remove("show");
+                copyBtn.classList.remove("show");
+            }
+        }
+
+        async function copyLicenseKey() {
+            const key = document.getElementById("license-key").textContent.trim();
+            if (!key) return;
+
+            try {
+                await navigator.clipboard.writeText(key);
+                const btn = document.getElementById("copy-license-btn");
+                const old = btn.textContent;
+                btn.textContent = "✓ Copied";
+                setTimeout(() => { btn.textContent = old; }, 1800);
+            } catch (_) {
+                window.prompt("Copy your ScienceTracker license key:", key);
+            }
+        }
+
+        async function pollLicenseDelivery() {
+            if (!currentDeliveryToken) return;
+
+            deliveryPollAttempts += 1;
+
+            try {
+                const response = await fetch(`${LICENSE_API_BASE}/license-delivery`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        delivery_token: currentDeliveryToken
+                    })
+                });
+
+                const data = await response.json().catch(() => null);
+
+                if (response.ok && data && data.ok && data.ready && data.license_key) {
+                    if (deliveryPollTimer) {
+                        clearTimeout(deliveryPollTimer);
+                        deliveryPollTimer = null;
+                    }
+
+                    const keyEl = document.getElementById("license-key");
+                    const copyBtn = document.getElementById("copy-license-btn");
+
+                    setDeliveryState(
+                        "ready",
+                        "Your ScienceTracker license is ready",
+                        "Copy this key and enter it in ScienceTracker: About → License."
+                    );
+
+                    keyEl.textContent = data.license_key;
+                    keyEl.classList.add("show");
+                    copyBtn.classList.add("show");
+
+                    sessionStorage.removeItem("sciencetracker_delivery_token");
+
+                    try {
+                        Paddle.Checkout.close();
+                    } catch (_) {}
+
+                    setTimeout(() => {
+                        document.getElementById("license-delivery")
+                            .scrollIntoView({ behavior: "smooth", block: "center" });
+                    }, 250);
+
+                    return;
+                }
+
+                if (response.ok && data && data.ok && data.ready === false) {
+                    if (deliveryPollAttempts < MAX_DELIVERY_POLL_ATTEMPTS) {
+                        deliveryPollTimer = setTimeout(pollLicenseDelivery, 1000);
+                        return;
+                    }
+                } else if (!response.ok && response.status >= 500) {
+                    if (deliveryPollAttempts < MAX_DELIVERY_POLL_ATTEMPTS) {
+                        deliveryPollTimer = setTimeout(pollLicenseDelivery, 1500);
+                        return;
+                    }
+                }
+
+                throw new Error("License delivery not ready");
+            } catch (err) {
+                if (deliveryPollAttempts < MAX_DELIVERY_POLL_ATTEMPTS) {
+                    deliveryPollTimer = setTimeout(pollLicenseDelivery, 1500);
+                    return;
+                }
+
+                setDeliveryState(
+                    "error",
+                    "Payment received, but the license key is still being prepared",
+                    "Please keep this page open for a moment and try again. If the key does not appear, contact support with your Paddle receipt."
+                );
+            }
+        }
+
+        function beginLicenseDelivery() {
+            deliveryPollAttempts = 0;
+            setDeliveryState(
+                "pending",
+                "Payment confirmed — preparing your license…",
+                "This normally takes only a few seconds."
+            );
+            pollLicenseDelivery();
+        }
+
         Paddle.Environment.set("sandbox");
+
         Paddle.Initialize({
             token: "test_b79019508fe28a0bbe10c538c8d",
             checkout: {
@@ -164,17 +359,50 @@
                     theme: "light",
                     locale: "en"
                 }
+            },
+            eventCallback: function(event) {
+                if (event && event.name === "checkout.completed") {
+                    const eventToken =
+                        event.data &&
+                        event.data.custom_data &&
+                        event.data.custom_data.delivery_token;
+
+                    if (eventToken) {
+                        currentDeliveryToken = eventToken;
+                        sessionStorage.setItem(
+                            "sciencetracker_delivery_token",
+                            currentDeliveryToken
+                        );
+                    }
+
+                    beginLicenseDelivery();
+                }
             }
         });
 
         function openScienceTrackerCheckout() {
+            currentDeliveryToken = makeDeliveryToken();
+            sessionStorage.setItem(
+                "sciencetracker_delivery_token",
+                currentDeliveryToken
+            );
+
+            setDeliveryState(
+                "pending",
+                "Checkout opened",
+                "Complete the payment in Paddle. Your license key will appear here automatically after confirmation."
+            );
+
             Paddle.Checkout.open({
                 items: [
                     {
-                        priceId: "pri_01m34d8zhx7y0cpqrwmd5wg85f",
+                        priceId: SCIENCETRACKER_PRICE_ID,
                         quantity: 1
                     }
                 ],
+                customData: {
+                    delivery_token: currentDeliveryToken
+                },
                 settings: {
                     displayMode: "overlay",
                     theme: "light",
@@ -182,6 +410,17 @@
                 }
             });
         }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const savedToken = sessionStorage.getItem(
+                "sciencetracker_delivery_token"
+            );
+
+            if (savedToken) {
+                currentDeliveryToken = savedToken;
+                beginLicenseDelivery();
+            }
+        });
     </script>
 
 </head>
@@ -248,6 +487,24 @@
             Sandbox checkout for testing — no real payment will be charged.
         </p>
 
+    </section>
+
+    <section id="license-delivery" class="license-delivery" aria-live="polite">
+        <h2 id="license-delivery-title">Preparing your license…</h2>
+        <p id="license-delivery-message"></p>
+        <div id="license-key" class="license-key-box"></div>
+        <button
+            id="copy-license-btn"
+            type="button"
+            class="btn copy-license-btn"
+            onclick="copyLicenseKey()"
+        >
+            📋 Copy License Key
+        </button>
+        <p style="font-size:0.85rem; color:#64748b; margin-top:14px;">
+            Keep your license key in a safe place. You can deactivate it on one PC
+            and activate it on another from ScienceTracker.
+        </p>
     </section>
 
     <!-- Donation / PayPal Section -->
