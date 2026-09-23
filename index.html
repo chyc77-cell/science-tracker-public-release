@@ -204,6 +204,50 @@
             cursor: pointer;
         }
 
+    
+        .info-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.58);
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .info-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-modal-dialog {
+            width: min(760px, 100%);
+            max-height: 86vh;
+            overflow-y: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+            padding: 28px;
+        }
+
+        .info-modal-dialog h2 {
+            margin-top: 0;
+        }
+
+        .info-modal-actions {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .info-modal-close {
+            min-width: 110px;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body>
@@ -288,13 +332,20 @@
         <a href='https://ko-fi.com/Q3M827CX6L' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
     </section>
 
-    <section id="contact" class="card" style="text-align: center;">
-        <h2>Support & Contact</h2>
+    <div id="info-modal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+        <div class="info-modal-dialog">
+            <div id="info-modal-content"></div>
+            <div class="info-modal-actions">
+                <button type="button" class="btn info-modal-close" onclick="closeInfoModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+<div id="info-modal-templates" style="display:none;">
+<div id="modal-template-contact"><h2>Support & Contact</h2>
         <p>Have questions or need assistance with ScienceTracker?</p>
-        <p><strong>Email Support:</strong> <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a></p>
-    </section>
-    <section class="legal-section" id="privacy">
-        <h2>Privacy Policy</h2>
+        <p><strong>Email Support:</strong> <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a></p></div>
+<div id="modal-template-privacy"><h2>Privacy Policy</h2>
         <p>
             ScienceTracker processes publicly available academic metadata and citation
             metrics from services such as Google Scholar, Scopus, OpenAlex, Crossref,
@@ -315,11 +366,8 @@
         <p>
             Privacy questions may be sent to
             <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a>.
-        </p>
-    </section>
-
-    <section class="legal-section" id="terms">
-        <h2>Terms of Service</h2>
+        </p></div>
+<div id="modal-template-terms"><h2>Terms of Service</h2>
         <p>
             ScienceTracker is a Windows software application offered with a free trial and
             an optional lifetime license. A lifetime license is a one-time purchase that
@@ -344,11 +392,8 @@
         <p>
             Support contact:
             <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a>.
-        </p>
-    </section>
-
-    <section class="legal-section" id="refunds">
-        <h2>Refund Policy</h2>
+        </p></div>
+<div id="modal-template-refunds"><h2>Refund Policy</h2>
         <p>
             ScienceTracker is a digital software product. Payments and eligible refunds are
             processed by Paddle.com, our Merchant of Record, in accordance with applicable
@@ -358,17 +403,18 @@
             If you have a problem with a purchase or license activation, contact
             <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a> and include the email
             address used for the purchase. Do not send payment-card details.
-        </p>
-    </section>
+        </p></div>
+</div>
+
 <footer>
         <p style="margin-bottom:10px;">
-            <a href="#privacy">Privacy Policy</a>
+            <a href="#" onclick="openInfoModal('privacy'); return false;">Privacy Policy</a>
             &nbsp;|&nbsp;
-            <a href="#terms">Terms of Service</a>
+            <a href="#" onclick="openInfoModal('terms'); return false;">Terms of Service</a>
             &nbsp;|&nbsp;
-            <a href="#refunds">Refund Policy</a>
+            <a href="#" onclick="openInfoModal('refunds'); return false;">Refund Policy</a>
             &nbsp;|&nbsp;
-            <a href="#contact">Contact</a>
+            <a href="#" onclick="openInfoModal('contact'); return false;">Contact</a>
         </p>
         <p>&copy; 2026 ScienceTracker. All rights reserved.</p>
         <p style="font-size:0.85rem; color:#64748b;">
@@ -376,6 +422,48 @@
         </p>
     </footer>
 </div>
+
+
+    <script>
+        function openInfoModal(sectionId) {
+            const modal = document.getElementById("info-modal");
+            const content = document.getElementById("info-modal-content");
+            const template = document.getElementById("modal-template-" + sectionId);
+
+            if (!modal || !content || !template) return;
+
+            content.innerHTML = template.innerHTML;
+            modal.classList.add("show");
+            document.body.classList.add("modal-open");
+
+            const heading = content.querySelector("h2");
+            if (heading) heading.id = "info-modal-title";
+
+            const okButton = modal.querySelector(".info-modal-close");
+            if (okButton) okButton.focus();
+        }
+
+        function closeInfoModal() {
+            const modal = document.getElementById("info-modal");
+            if (!modal) return;
+
+            modal.classList.remove("show");
+            document.body.classList.remove("modal-open");
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeInfoModal();
+            }
+        });
+
+        document.addEventListener("click", function(event) {
+            const modal = document.getElementById("info-modal");
+            if (modal && event.target === modal) {
+                closeInfoModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
