@@ -375,8 +375,12 @@
         <h2>Try ScienceTracker Free</h2>
         <p>Download the latest version with a <strong>14-day full-featured trial</strong> and explore automated metrics monitoring, research analytics, and Telegram notifications.</p>
         <div style="margin-top: 15px;">
-            <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/download/4.3.0/ScienceTracker_Setup_4.2.0.exe" class="btn btn-success" target="_blank">
-                ⬇️ Download ScienceTracker v4.3.0 (.exe)
+            <a id="download-button"
+               href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest/download/ScienceTracker_Setup.exe"
+               class="btn btn-success"
+               target="_blank"
+               rel="noopener">
+                ⬇️ Download latest ScienceTracker (.exe)
             </a>
         <p style="margin-top:12px; color:#475569; font-weight:600; line-height:1.45;">
             Full-featured version with a <strong>14-day trial</strong>. License purchase is currently unavailable.
@@ -533,6 +537,74 @@
 
 
     <script>
+        async function updateLatestRelease() {
+            const button = document.getElementById("download-button");
+            if (!button) return;
+
+            const repo = "chyc77-cell/science-tracker-public-release";
+            const fallbackDownload =
+                `https://github.com/${repo}/releases/latest/download/ScienceTracker_Setup.exe`;
+            const latestReleasePage =
+                `https://github.com/${repo}/releases/latest`;
+
+            // Safe fallback if the GitHub API is unavailable or rate-limited.
+            button.href = fallbackDownload;
+
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${repo}/releases/latest`,
+                    {
+                        headers: {
+                            "Accept": "application/vnd.github+json"
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API returned ${response.status}`);
+                }
+
+                const release = await response.json();
+                const rawTag = String(release.tag_name || "").trim();
+                const version = rawTag.replace(/^v/i, "");
+
+                // Prefer the permanent filename that will be used in future releases.
+                // For older releases, fall back to any Windows .exe asset.
+                const assets = Array.isArray(release.assets) ? release.assets : [];
+                const installer =
+                    assets.find(asset =>
+                        String(asset.name || "").toLowerCase() === "sciencetracker_setup.exe"
+                    ) ||
+                    assets.find(asset =>
+                        String(asset.name || "").toLowerCase().endsWith(".exe")
+                    );
+
+                if (installer && installer.browser_download_url) {
+                    button.href = installer.browser_download_url;
+                } else if (release.html_url) {
+                    button.href = release.html_url;
+                } else {
+                    button.href = latestReleasePage;
+                }
+
+                if (version) {
+                    button.textContent = `⬇️ Download ScienceTracker v${version} (.exe)`;
+                    button.setAttribute(
+                        "aria-label",
+                        `Download ScienceTracker version ${version} for Windows`
+                    );
+                } else {
+                    button.textContent = "⬇️ Download latest ScienceTracker (.exe)";
+                }
+            } catch (error) {
+                console.warn("Could not retrieve the latest ScienceTracker release:", error);
+                button.href = fallbackDownload;
+                button.textContent = "⬇️ Download latest ScienceTracker (.exe)";
+            }
+        }
+
+        updateLatestRelease();
+
         function openInfoModal(sectionId) {
             const modal = document.getElementById("info-modal");
             const content = document.getElementById("info-modal-content");
