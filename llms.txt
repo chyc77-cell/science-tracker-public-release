@@ -1,0 +1,31 @@
+# ScienceTracker
+
+> ScienceTracker is a free Windows desktop application for researchers that monitors publications, citation counts, h-index values, and profile changes across Google Scholar, Scopus, OpenAlex, and ORCID. It can run in the Windows system tray, notify users when monitored metrics change, and provide research analytics and bibliometric reports.
+
+ScienceTracker keeps metrics from different academic databases separate because Google Scholar, Scopus, and OpenAlex have different publication and citation coverage.
+
+Scopus data are updated through the official Scopus API. A valid Scopus API key is required, and available data may depend on Elsevier access and institutional authorization.
+
+ScienceTracker is independently developed and free to use.
+
+## Official resources
+
+- [ScienceTracker website](https://chyc77-cell.github.io/science-tracker-public-release/): Official product page with download link, feature overview, FAQ, privacy information, and current structured metadata.
+- [ScienceTracker GitHub repository](https://github.com/chyc77-cell/science-tracker-public-release): Official repository containing releases, documentation, README, and issue tracking.
+- [ScienceTracker README](https://github.com/chyc77-cell/science-tracker-public-release/blob/main/README.md): Detailed documentation, supported services, setup instructions, analytics features, technical notes, and FAQ.
+- [Latest Windows release](https://github.com/chyc77-cell/science-tracker-public-release/releases/latest): Latest downloadable ScienceTracker release for Windows.
+- [ScienceTracker on Product Hunt](https://www.producthunt.com/products/sciencetracker?launch=sciencetracker): Independent public product listing and launch page.
+
+## Core capabilities
+
+- [Main product page](https://chyc77-cell.github.io/science-tracker-public-release/): Citation and h-index monitoring, publication tracking, Windows notifications, Telegram notifications, source-specific metrics, local metric history, and research analytics.
+- [Documentation](https://github.com/chyc77-cell/science-tracker-public-release/blob/main/README.md): Google Scholar monitoring, Scopus API access, OpenAlex analytics, ORCID comparison, citation trends, journal quartiles, publication-type analysis, h-index progress analysis, DOI-linked bibliographic records, and Word export.
+
+## Typical user questions
+
+- [FAQ and documentation](https://github.com/chyc77-cell/science-tracker-public-release/blob/main/README.md#frequently-asked-questions): Answers questions about automatically tracking h-index, monitoring Google Scholar citations, comparing Google Scholar, Scopus, and OpenAlex, receiving citation-change notifications, Scopus API requirements, background monitoring, and source-specific citation counts.
+
+## Optional
+
+- [Sitemap](https://chyc77-cell.github.io/science-tracker-public-release/sitemap.xml): Sitemap for the official ScienceTracker site.
+- [robots.txt](https://chyc77-cell.github.io/science-tracker-public-release/robots.txt): Crawler access rules for the official ScienceTracker site.
