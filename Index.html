@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScienceTracker is a Windows application for academic metrics monitoring and research analytics across Scopus, Google Scholar, and OpenAlex.">
+    <title>ScienceTracker — Free Citation & h-index Tracker for Researchers</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        .tagline {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 25px;
+        }
+        .download-hero {
+            background: #e0f2fe;
+            border: 1px solid #bae6fd;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+        .btn-success {
+            background-color: #16a34a;
+        }
+        .btn-success:hover {
+            background-color: #15803d;
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-top: 15px;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .donation-card {
+            background: #fffbe3;
+            border: 1px solid #fde68a;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .paypal-box {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        .legal-section {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        button.btn {
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+    
+        .info-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.58);
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .info-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-modal-dialog {
+            width: min(760px, 100%);
+            max-height: 86vh;
+            overflow-y: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+            padding: 28px;
+        }
+
+        .info-modal-dialog h2 {
+            margin-top: 0;
+        }
+
+        .info-modal-actions {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .info-modal-close {
+            min-width: 110px;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+        /* Optional project support */
+        .donation-card {
+            max-width: 680px;
+            margin: 34px auto 18px;
+            padding: 26px 28px;
+            border: 2px solid #f5c451;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #fffdf2 0%, #fff9d9 100%);
+            box-shadow: 0 8px 22px rgba(120, 90, 20, 0.10);
+            text-align: center;
+        }
+
+        .donation-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 8px;
+            font-weight: 700;
+            color: #5b4a14;
+        }
+
+        .donation-card p {
+            margin: 6px auto 14px;
+            max-width: 560px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #6b5a21;
+        }
+
+        .donation-card a {
+            display: inline-block;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        .donation-card a:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        .donation-card img {
+            height: 36px !important;
+        }
+
+    
+        .hero-preview {
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            margin: 0 auto 22px;
+            border-radius: 14px;
+            border: 1px solid #dbe4f0;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+    </style>
+
+    <meta property="og:title" content="ScienceTracker — Academic Metrics &amp; Analytics">
+    <meta property="og:description" content="Windows app for academic metrics monitoring and research analytics.">
+    <meta property="og:url" content="https://chyc77-cell.github.io/science-tracker-public-release/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://chyc77-cell.github.io/science-tracker-public-release/sciencetracker-preview.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ScienceTracker — Academic Metrics &amp; Analytics">
+    <meta name="twitter:description" content="Windows app for academic metrics monitoring and research analytics.">
+    <meta name="twitter:image" content="https://chyc77-cell.github.io/science-tracker-public-release/sciencetracker-preview.png">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I track my h-index automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ScienceTracker can periodically monitor h-index values from supported academic sources and notify you when a monitored value changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free app for monitoring Google Scholar citations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker is free to use and can monitor publication totals, citation counts, and h-index values from a researcher's public Google Scholar profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I monitor Google Scholar, Scopus, and OpenAlex together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker supports Google Scholar, Scopus, and OpenAlex in one Windows application. It keeps metrics from each source separate because the databases have different publication and citation coverage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ScienceTracker notify me when my citation count changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker can display Windows notifications when monitored citation counts, publication totals, h-index values, or tracked publication data change. Optional Telegram notifications are also available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use ScienceTracker without a Scopus API key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker can use browser-based retrieval for the public Scopus author profile. This mode provides more limited publication data than full API access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ScienceTracker run in the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker can run in the Windows system tray and periodically check selected academic profiles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is ScienceTracker free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ScienceTracker is free to use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ScienceTracker combine citation counts from different databases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Google Scholar, Scopus, and OpenAlex index different sets of publications and citations, so ScienceTracker keeps source-specific metrics separate."
+      }
+    }
+  ]
+}
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ScienceTracker</h1>
+        <p class="tagline">Free Windows citation and h-index tracker for Google Scholar, Scopus, OpenAlex and ORCID</p>
+        <p>
+            Monitor your publications, citation counts and h-index automatically,
+            and get notified when your academic metrics change.
+        </p>
+    </header>
+
+    <!-- Download & Documentation Hero -->
+    <div class="download-hero">
+        <img src="sciencetracker-preview.png" alt="ScienceTracker preview banner" class="hero-preview">
+        <h2>Download ScienceTracker</h2>
+        <p>Download the latest version and explore automated metrics monitoring, research analytics, and Telegram notifications.</p>
+        <div style="margin-top: 15px;">
+            <a id="download-button"
+               href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest/download/ScienceTracker_Setup.exe"
+               class="btn btn-success"
+               target="_blank"
+               rel="noopener">
+                ⬇️ Download latest ScienceTracker (.exe)
+            </a>
+
+        <p style="margin-top:12px; color:#b91c1c; font-weight:700; line-height:1.45;">
+            Windows may block the first automatic launch of ScienceTracker because the
+            application is not yet digitally signed. If a Windows security warning appears,
+            choose <strong>More info</strong> and then <strong>Run anyway</strong> to allow
+            the application to start.
+        </p>
+
+            <br>
+            <a href="https://github.com/chyc77-cell/science-tracker-public-release#readme" class="btn btn-outline" target="_blank">
+                📖 View Full Documentation & Setup Guide (README)
+            </a>
+        </div>
+    </div>
+
+    <section class="grid">
+        <div class="card">
+            <h3>Multi-Source Monitoring</h3>
+            <p>Track citation counts, publication totals, and h-index values across supported academic sources. When any monitored metric changes, ScienceTracker can show a Windows system notification and visually change the tray icon so you can immediately see that new citation, publication, or h-index activity has been detected.</p>
+        </div>
+        <div class="card">
+            <h3>Research Analytics</h3>
+            <p>Analyze citation trends, publication types, citation thresholds, journal quartiles, and progress toward the next h-index.</p>
+        </div>
+        <div class="card">
+            <h3>Publication Insights</h3>
+            <p>Review publication-level citation data, formatted bibliographic records, DOI links, and papers closest to increasing your h-index.</p>
+        </div>
+        <div class="card">
+            <h3>Windows System Tray</h3>
+            <p>Runs quietly in the Windows system tray and notifies you when tracked academic metrics change.</p>
+        </div>
+        <div class="card">
+            <h3>Telegram Notifications</h3>
+            <p>Optionally connect ScienceTracker to Telegram and receive notifications when citations, publication counts, h-index values, or tracked publication data change.</p>
+        </div>
+        <div class="card">
+            <h3>Automatic Updates</h3>
+            <p>Built-in update support helps deliver compatibility fixes and new functionality through future releases.</p>
+        </div>
+        <div class="card">
+            <h3>Local-First Data</h3>
+            <p>Metric history, analytics caches, and supporting metadata are stored locally on your Windows device.</p>
+        </div>
+    </section>
+
+    <section class="card" id="faq" style="margin:30px 0;">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How can I track my h-index automatically?</h3>
+        <p>ScienceTracker can periodically monitor h-index values from supported academic sources and notify you when a monitored value changes.</p>
+
+        <h3>Is there a free app for monitoring Google Scholar citations?</h3>
+        <p>Yes. ScienceTracker is free to use and can monitor publication totals, citation counts, and h-index values from a researcher's public Google Scholar profile.</p>
+
+        <h3>Can I monitor Google Scholar, Scopus, and OpenAlex together?</h3>
+        <p>Yes. ScienceTracker supports Google Scholar, Scopus, and OpenAlex in one Windows application. It keeps metrics from each source separate because the databases have different publication and citation coverage.</p>
+
+        <h3>Can ScienceTracker notify me when my citation count changes?</h3>
+        <p>Yes. ScienceTracker can display Windows notifications when monitored citation counts, publication totals, h-index values, or tracked publication data change. Optional Telegram notifications are also available.</p>
+
+        <h3>Can I use ScienceTracker without a Scopus API key?</h3>
+        <p>Yes. ScienceTracker can use browser-based retrieval for the public Scopus author profile. This mode provides more limited publication data than full API access.</p>
+
+        <h3>Does ScienceTracker run in the background?</h3>
+        <p>Yes. ScienceTracker can run in the Windows system tray and periodically check selected academic profiles.</p>
+
+        <h3>Is ScienceTracker free?</h3>
+        <p>Yes. ScienceTracker is free to use.</p>
+
+        <h3>Does ScienceTracker combine citation counts from different databases?</h3>
+        <p>No. Google Scholar, Scopus, and OpenAlex index different sets of publications and citations, so ScienceTracker keeps source-specific metrics separate.</p>
+    </section>
+<!-- Optional project support -->
+    <section class="donation-card">
+        <h3>Support ScienceTracker</h3>
+        <p>
+            ScienceTracker is developed and maintained independently. If you find it useful,
+            you can support future development with a voluntary contribution.
+        </p>
+        <a href='https://ko-fi.com/Q3M827CX6L' target='_blank' rel='noopener'>
+            <img height='30' style='border:0;height:30px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6'
+                 border='0' alt='Support ScienceTracker on Ko-fi' />
+        </a>
+    </section>
+
+    <div id="info-modal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+        <div class="info-modal-dialog">
+            <div id="info-modal-content"></div>
+            <div class="info-modal-actions">
+                <button type="button" class="btn info-modal-close" onclick="closeInfoModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+<div id="info-modal-templates" style="display:none;">
+<div id="modal-template-contact"><h2>Support & Contact</h2>
+        <p>Have questions or need assistance with ScienceTracker?</p>
+        <p><strong>Email Support:</strong> <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a></p></div>
+<div id="modal-template-privacy"><h2>Privacy Policy</h2>
+        <p>
+            ScienceTracker processes publicly available academic metadata and citation
+            metrics from services such as Google Scholar, Scopus, OpenAlex, Crossref,
+            and SCImago where applicable.
+        </p>
+        <p>
+            ScienceTracker does not intentionally collect or sell personal user telemetry,
+            passwords, or academic-service credentials. Metric histories, analytics caches,
+            and supporting data generated by the application are stored locally on the
+            user's Windows device.
+        </p>
+        <p>
+            Privacy questions may be sent to
+            <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a>.
+        </p></div>
+<div id="modal-template-terms"><h2>Terms of Service</h2>
+        <p>
+            ScienceTracker is independently developed software for academic metrics
+            monitoring and research analytics.
+        </p>
+        <p>
+            The software is provided "as is" without a guarantee that third-party academic
+            services will remain continuously available or keep the same interfaces,
+            because those services are controlled by their respective providers.
+        </p>
+        <p>
+            Users are responsible for complying with the terms and access requirements of
+            the external services and APIs they choose to use with ScienceTracker.
+        </p>
+        <p>
+            Support contact:
+            <a href="mailto:chyc77@gmail.com">chyc77@gmail.com</a>.
+        </p></div>
+</div>
+
+<footer>
+        <p style="margin-bottom:10px;">
+            <a href="#" onclick="openInfoModal('privacy'); return false;">Privacy Policy</a>
+            &nbsp;|&nbsp;
+            <a href="#" onclick="openInfoModal('terms'); return false;">Terms of Service</a>
+            &nbsp;|&nbsp;
+            <a href="#" onclick="openInfoModal('contact'); return false;">Contact</a>
+        </p>
+        <p>&copy; 2026 ScienceTracker. All rights reserved.</p>
+    </footer>
+</div>
+
+
+    <script>
+        async function updateLatestRelease() {
+            const button = document.getElementById("download-button");
+            if (!button) return;
+
+            const repo = "chyc77-cell/science-tracker-public-release";
+            const fallbackDownload =
+                `https://github.com/${repo}/releases/latest/download/ScienceTracker_Setup.exe`;
+            const latestReleasePage =
+                `https://github.com/${repo}/releases/latest`;
+
+            // Safe fallback if the GitHub API is unavailable or rate-limited.
+            button.href = fallbackDownload;
+
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${repo}/releases/latest`,
+                    {
+                        headers: {
+                            "Accept": "application/vnd.github+json"
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API returned ${response.status}`);
+                }
+
+                const release = await response.json();
+                const rawTag = String(release.tag_name || "").trim();
+                const version = rawTag.replace(/^v/i, "");
+
+                // Prefer the permanent filename that will be used in future releases.
+                // For older releases, fall back to any Windows .exe asset.
+                const assets = Array.isArray(release.assets) ? release.assets : [];
+                const installer =
+                    assets.find(asset =>
+                        String(asset.name || "").toLowerCase() === "sciencetracker_setup.exe"
+                    ) ||
+                    assets.find(asset =>
+                        String(asset.name || "").toLowerCase().endsWith(".exe")
+                    );
+
+                if (installer && installer.browser_download_url) {
+                    button.href = installer.browser_download_url;
+                } else if (release.html_url) {
+                    button.href = release.html_url;
+                } else {
+                    button.href = latestReleasePage;
+                }
+
+                if (version) {
+                    button.textContent = `⬇️ Download ScienceTracker v${version} (.exe)`;
+                    button.setAttribute(
+                        "aria-label",
+                        `Download ScienceTracker version ${version} for Windows`
+                    );
+                } else {
+                    button.textContent = "⬇️ Download latest ScienceTracker (.exe)";
+                }
+            } catch (error) {
+                console.warn("Could not retrieve the latest ScienceTracker release:", error);
+                button.href = fallbackDownload;
+                button.textContent = "⬇️ Download latest ScienceTracker (.exe)";
+            }
+        }
+
+        updateLatestRelease();
+
+        function openInfoModal(sectionId) {
+            const modal = document.getElementById("info-modal");
+            const content = document.getElementById("info-modal-content");
+            const template = document.getElementById("modal-template-" + sectionId);
+
+            if (!modal || !content || !template) return;
+
+            content.innerHTML = template.innerHTML;
+            modal.classList.add("show");
+            document.body.classList.add("modal-open");
+
+            const heading = content.querySelector("h2");
+            if (heading) heading.id = "info-modal-title";
+
+            const okButton = modal.querySelector(".info-modal-close");
+            if (okButton) okButton.focus();
+        }
+
+        function closeInfoModal() {
+            const modal = document.getElementById("info-modal");
+            if (!modal) return;
+
+            modal.classList.remove("show");
+            document.body.classList.remove("modal-open");
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeInfoModal();
+            }
+        });
+
+        document.addEventListener("click", function(event) {
+            const modal = document.getElementById("info-modal");
+            if (modal && event.target === modal) {
+                closeInfoModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
