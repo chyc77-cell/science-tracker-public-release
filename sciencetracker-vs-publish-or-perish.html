@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScienceTracker vs Publish or Perish (PoP) — Key Differences for Citation & h-index Monitoring</title>
+    <meta name="description" content="Compare ScienceTracker with Publish or Perish (PoP) for ongoing personal citation and h-index monitoring. See ScienceTracker features such as scheduled background checks, Windows and Telegram notifications, automatic metric history, ORCID comparison, h-index progress analysis, and SCImago quartile enrichment.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://chyc77-cell.github.io/science-tracker-public-release/sciencetracker-vs-publish-or-perish.html">
+    <link rel="describedby" href="https://chyc77-cell.github.io/science-tracker-public-release/llms.txt">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ScienceTracker vs Publish or Perish — Key Differences">
+    <meta property="og:description" content="ScienceTracker focuses on continuous monitoring of a researcher's own academic profiles, with automatic checks, notifications, metric history, ORCID comparison, h-index progress analysis and SCImago enrichment.">
+    <meta property="og:url" content="https://chyc77-cell.github.io/science-tracker-public-release/sciencetracker-vs-publish-or-perish.html">
+    <meta property="og:site_name" content="ScienceTracker">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ScienceTracker vs Publish or Perish — Key Differences">
+    <meta name="twitter:description" content="A focused comparison for researchers who want ongoing citation and h-index monitoring rather than ad-hoc bibliometric searches.">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --muted: #475569;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --accent-bg: #e0f2fe;
+            --accent-border: #bae6fd;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 40px 20px 64px;
+        }
+        header {
+            text-align: center;
+            padding: 22px 0 18px;
+        }
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.18;
+            margin: 0 0 16px;
+        }
+        h2 { margin-top: 34px; }
+        .subtitle {
+            max-width: 820px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 1.15rem;
+        }
+        .note {
+            margin: 28px 0;
+            padding: 22px;
+            border: 1px solid var(--accent-border);
+            background: var(--accent-bg);
+            border-radius: 12px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 26px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+        }
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+        .card p { margin-bottom: 0; }
+        .search-block {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+        .search-block ul {
+            margin-bottom: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            margin: 6px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 650;
+            background: var(--primary);
+            color: white;
+        }
+        .btn:hover { background: var(--primary-hover); }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover { color: white; background: var(--primary); }
+        .actions {
+            text-align: center;
+            margin-top: 34px;
+        }
+        .sources {
+            margin-top: 34px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+        footer {
+            margin-top: 44px;
+            border-top: 1px solid var(--border);
+            padding-top: 22px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        a { color: #1d4ed8; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ScienceTracker vs Publish or Perish (PoP) — Key Differences",
+      "url": "https://chyc77-cell.github.io/science-tracker-public-release/sciencetracker-vs-publish-or-perish.html",
+      "description": "A comparison focused on ScienceTracker features for continuous personal citation and h-index monitoring, including scheduled background checks, notifications, metric history, ORCID comparison, h-index progress analysis, and SCImago quartile enrichment.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "ScienceTracker",
+        "url": "https://chyc77-cell.github.io/science-tracker-public-release/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "ScienceTracker",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Windows",
+        "url": "https://chyc77-cell.github.io/science-tracker-public-release/",
+        "isAccessibleForFree": true
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is ScienceTracker an alternative to Publish or Perish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScienceTracker can be an alternative for researchers whose main goal is continuous monitoring of their own citation counts, h-index values, publications and academic profiles. Publish or Perish is a broader bibliometric search and analysis tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the main difference between ScienceTracker and Publish or Perish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScienceTracker is designed around scheduled background monitoring of existing researcher profiles, automatic metric history and change notifications. Publish or Perish is primarily organized around bibliometric searches, queries and analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ScienceTracker notify me when my h-index or citation count changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ScienceTracker can show Windows notifications when monitored metrics change and can optionally send Telegram notifications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which academic services can ScienceTracker monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScienceTracker supports researcher workflows involving Google Scholar, Scopus, OpenAlex and ORCID. Metrics from different citation databases are kept separate because their coverage differs."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <h1>Key Differences and Additional ScienceTracker Services Compared with Publish or Perish (PoP)</h1>
+        <p class="subtitle">
+            ScienceTracker focuses on continuous monitoring of a researcher's own academic profiles,
+            while Publish or Perish is a broader bibliometric search and analysis tool.
+        </p>
+    </header>
+
+    <div class="note">
+        <strong>Scope of this comparison.</strong>
+        The points below intentionally cover only areas where ScienceTracker offers a different workflow
+        or additional services for ongoing personal research-metrics monitoring. This page does not claim
+        that ScienceTracker replaces the full bibliometric search and analysis functionality of Publish or Perish.
+    </div>
+
+    <section aria-labelledby="differences-heading">
+        <h2 id="differences-heading">Eight key ScienceTracker differences</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>1. Scheduled background monitoring</h3>
+                <p>
+                    ScienceTracker can periodically check selected researcher profiles in the background.
+                    The user sets up the profiles and monitoring interval once, rather than manually repeating
+                    the same bibliometric search each time.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>2. Windows system tray operation</h3>
+                <p>
+                    ScienceTracker is designed to stay available in the Windows system tray as an ongoing
+                    personal citation and h-index monitor, without requiring the main window to remain open.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>3. Windows notifications when metrics change</h3>
+                <p>
+                    ScienceTracker can notify the researcher when monitored citation counts, publication totals,
+                    h-index values, or tracked publication data change.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>4. Optional Telegram notifications</h3>
+                <p>
+                    In addition to local Windows notifications, ScienceTracker can optionally send metric-change
+                    notifications through Telegram, allowing researchers to receive updates away from the desktop.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>5. Automatic local metric history</h3>
+                <p>
+                    ScienceTracker automatically accumulates a local chronological history of monitored metrics,
+                    making it easier to review how citation counts and h-index values have changed over time.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>6. ORCID integration and profile comparison</h3>
+                <p>
+                    ScienceTracker includes ORCID in the researcher's monitoring environment and can use it
+                    alongside Google Scholar, Scopus and OpenAlex when reviewing publication records and profile coverage.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>7. h-index progress analysis</h3>
+                <p>
+                    ScienceTracker can identify publications that are closest to contributing to the next h-index
+                    increase, giving the researcher a direct view of h-index progress at publication level.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>8. SCImago journal-quartile enrichment</h3>
+                <p>
+                    Where a reliable journal match is available, ScienceTracker can enrich publication analytics
+                    with SCImago quartile information (Q1–Q4), adding journal context to the researcher's publication record.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="search-block" aria-labelledby="use-cases-heading">
+        <h2 id="use-cases-heading">When ScienceTracker may fit your workflow</h2>
+        <p>
+            ScienceTracker is intended for researchers looking for a <strong>Publish or Perish alternative focused on
+            automatic citation and h-index monitoring</strong>, rather than primarily on ad-hoc bibliometric searching.
+            It may be useful if you want a <strong>free Windows citation tracker</strong> that can monitor researcher
+            profiles across <strong>Google Scholar, Scopus, OpenAlex and ORCID</strong>, keep a local history of metrics,
+            and notify you when your citations, publications or h-index change.
+        </p>
+
+        <p>Typical questions this workflow addresses include:</p>
+        <ul>
+            <li>How can I monitor my h-index automatically?</li>
+            <li>How can I track citation-count changes without repeatedly checking several academic websites?</li>
+            <li>Is there a Windows alternative to Publish or Perish focused on continuous personal monitoring?</li>
+            <li>How can I monitor Google Scholar, Scopus, OpenAlex and ORCID from one desktop application?</li>
+            <li>How can I get a notification when my citations or h-index change?</li>
+            <li>Which of my publications are closest to increasing my h-index?</li>
+        </ul>
+    </section>
+
+    <section class="sources">
+        <h2>Comparison note and source</h2>
+        <p>
+            Publish or Perish is developed by Harzing.com and provides broad bibliometric search and analysis capabilities.
+            Its official documentation is available at
+            <a href="https://harzing.com/resources/publish-or-perish" target="_blank" rel="noopener">Harzing.com — Publish or Perish</a>.
+            ScienceTracker's positioning on this page is intentionally limited to its continuous personal-monitoring workflow
+            and related services.
+        </p>
+    </section>
+
+    <div class="actions">
+        <a class="btn" href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest/download/ScienceTracker_Setup.exe" target="_blank" rel="noopener">Download ScienceTracker</a>
+        <a class="btn btn-outline" href="https://chyc77-cell.github.io/science-tracker-public-release/">Back to ScienceTracker</a>
+        <a class="btn btn-outline" href="https://github.com/chyc77-cell/science-tracker-public-release" target="_blank" rel="noopener">GitHub & Documentation</a>
+    </div>
+
+    <footer>
+        ScienceTracker — free Windows citation and h-index monitoring for researchers.
+    </footer>
+</div>
+</body>
+</html>
