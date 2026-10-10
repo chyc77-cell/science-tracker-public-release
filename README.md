@@ -1,0 +1,272 @@
+# ScienceTracker 🎓
+
+**ScienceTracker is a free Windows citation and h-index tracker for researchers.** It monitors publications, citation counts, h-index values, and profile changes across **Google Scholar, Scopus, OpenAlex, and ORCID**.
+
+**Stop checking several academic profiles manually.** ScienceTracker can run quietly in the **Windows system tray**, check supported profiles automatically, and notify you when citations, publication counts, h-index values, or tracked publication data change.
+
+[⬇️ **Download the latest ScienceTracker installer for Windows**](https://github.com/chyc77-cell/science-tracker-public-release/releases/latest/download/ScienceTracker_Setup.zip)
+
+**Free · Windows 10/11 (64-bit) · Local metric history and analytics cache · Scopus API key required only for Scopus data**
+
+> **First-launch note:** the installer is currently not digitally signed, so Windows SmartScreen may show **Unknown Publisher**. If this happens, click **More info → Run anyway**.
+
+ScienceTracker also includes research analytics, citation trends, journal quartiles, citation-threshold analysis, and tools for identifying publications closest to increasing your h-index.
+
+## What is ScienceTracker?
+
+ScienceTracker is a free Windows desktop application for researchers, academics, and students who want to monitor their academic profiles and bibliometric metrics in one place.
+
+Instead of repeatedly checking Google Scholar, Scopus, OpenAlex, and ORCID manually, ScienceTracker can monitor supported profiles in the background and keep source-specific metrics available from one interface.
+
+### Supported academic services
+
+- **Google Scholar** — publication, citation, and h-index monitoring from a public Scholar profile.
+- **Scopus** — author metrics and publication records updated through the Scopus API. A valid Scopus API key is required.
+- **OpenAlex** — open bibliographic data, author metrics, and publication-level analytics.
+- **ORCID** — public publication-record retrieval and comparison, using the ORCID iD entered in Settings.
+- **Crossref & SCImago** — supporting metadata, publication matching, and journal-quartile information where applicable.
+
+## Track citations and h-index
+
+ScienceTracker can help you:
+
+- monitor total citation counts;
+- monitor h-index values;
+- monitor publication totals;
+- detect changes in tracked publication data;
+- review citation trends over time;
+- identify publications closest to increasing your h-index;
+- compare metrics from different academic sources without mixing incompatible citation counts.
+
+Because Google Scholar, Scopus, and OpenAlex have different coverage, ScienceTracker keeps their metrics separate.
+
+## Google Scholar monitoring
+
+ScienceTracker can monitor a researcher's public Google Scholar profile for publication totals, citation counts, and h-index changes.
+
+Google Scholar actively detects automated traffic, so very frequent checks may result in temporary rate limits or CAPTCHA challenges. Longer update intervals are recommended for continuous monitoring.
+
+## Scopus metrics
+
+ScienceTracker updates Scopus data through the **Scopus API**, so a valid **Scopus API key is required**.
+
+The amount of Scopus data available to ScienceTracker depends on the access granted to that API key by Elsevier. In some cases, access may also depend on institutional authorization or an Institutional Token.
+
+ScienceTracker does not use browser-based Scopus profile parsing.
+
+## OpenAlex analytics
+
+ScienceTracker uses the official OpenAlex REST API for author metrics, publication records, citation information, and supporting analytics. The OpenAlex author is resolved from the ORCID iD entered in Settings.
+
+OpenAlex can also act as a useful open bibliographic source when comparing coverage with Google Scholar and Scopus.
+
+## Citation notifications
+
+When ScienceTracker detects a change in monitored academic metrics, it can:
+
+- display a Windows notification;
+- visually mark the tray icon;
+- show recent changes in the statistics window;
+- optionally send a Telegram notification.
+
+This can include changes in citation counts, publication totals, h-index values, and tracked publication-level data.
+
+## Researcher metrics dashboard
+
+The statistics and analytics views provide access to:
+
+- citations;
+- h-index;
+- publication counts;
+- recent metric changes;
+- yearly publication/citation trends for supported sources;
+- publication distribution by journal quartile where available;
+- citation-threshold analysis;
+- journal quartiles where available;
+- publications closest to increasing the h-index;
+- formatted bibliographic records with clickable DOI links;
+- Word export for analytics and h-index reports.
+
+---
+
+## Trust, privacy & installation
+
+ScienceTracker is distributed through this public GitHub repository and the official GitHub Releases page.
+
+- **Local-first storage:** metric history, analytics caches, and supporting metadata are stored locally on the user's Windows device.
+- **No intentional collection or sale of personal user telemetry:** ScienceTracker does not intentionally collect or sell personal user telemetry, passwords, or academic-service credentials.
+- **Telegram is optional:** if Telegram notifications are enabled, the ScienceTracker notification service stores the minimum connection information required to associate the installation with the connected Telegram account and deliver notifications.
+- **Scopus access is optional for the rest of the app:** a valid Scopus API key is required only when Scopus data are enabled.
+- **Unsigned installer notice:** the current installer does not have a paid code-signing certificate, so Windows SmartScreen may display **Unknown Publisher** on first launch.
+
+[View the source repository and release files on GitHub](https://github.com/chyc77-cell/science-tracker-public-release)
+
+
+## 🌟 Features & Quick Start Guide
+
+### 1. Launching the App
+
+To install ScienceTracker, download the ZIP package, extract it, run `ScienceTracker_Setup.exe`, follow the on-screen setup wizard prompts, and click Finish to complete the installation.
+
+To launch ScienceTracker, open it from the Start Menu or Desktop shortcut. The application starts silently and minimizes to your **Windows System Tray** (bottom-right corner near the clock). Look for the **"h"** icon.
+
+### 2. Configuration (First-Time Setup)
+
+1. Right-click the tray icon and select **Settings** (Налаштування).
+2. Check the boxes for the platforms you wish to track.
+3. Enter your respective Author IDs:
+   - **Scopus Author ID:** The numeric ID found in your Scopus profile URL.
+   - **Google Scholar ID:** The identifier in your profile URL after `user=`.
+   - **ORCID ID:** Your full ORCID iD in the format `0000-0000-0000-0000`. ScienceTracker uses it for both OpenAlex and ORCID.
+4. For Scopus, enter a valid **Scopus API key** and, if applicable, an Institutional Token.
+5. Set the automatic check interval (**minimum 1 hour**) and enable **Run at Windows Startup** if desired.
+6. Optionally connect **Telegram notifications** from the same Settings window.
+7. Select your preferred **Interface Language** (English / Ukrainian).
+8. Click **Save**.
+
+### 3. Viewing Metrics & Notifications
+
+- **Tray Tooltip:** Hover over the tray icon to see a quick summary of monitored citation metrics.
+- **Detailed View:** Click the tray icon or right-click and choose **View statistics** to see citations, h-index, publication count, last update timestamp, recent changes, and publication-level details.
+- **Change Notifications:** When ScienceTracker detects a change in citations, publication count, h-index, or publication-level data, it can display a Windows notification and mark the tray icon.
+- **Telegram Notifications:** Telegram can be connected from **Settings**. When enabled, detected metric changes can be delivered to Telegram as well as shown in Windows.
+- **Analytics:** Open **Analytics** to explore yearly publication/citation trends for supported sources, publication distribution by journal quartile where available, citation-threshold shares, and publications closest to increasing your h-index.
+- **Bibliographic Output:** Analytics includes formatted publication records with clickable DOI links and supports export to Word.
+
+---
+
+## 📈 Research Analytics
+
+ScienceTracker is not only a monitoring tool. It also helps researchers interpret their bibliometric profile and publication performance.
+
+Current analytics features include:
+
+- **Works and citations by year** for supported data sources. For Scopus, the chart is aggregated by **publication year** from the locally cached Scopus work list; it is not a calendar-year citation-history series.
+- **h-index history by year** where reliable historical data are available.
+- **Publication distribution by journal quartile** where a reliable SCImago match is available.
+- **Citation-threshold analysis**, showing the share of publications with 0, ≥1, ≥5, and ≥10 citations.
+- **Journal quartile assignment** based on SCImago data for the publication year where available. When category-level quartiles are available, ScienceTracker uses the most frequent quartile; if there is a tie, it uses the numerically larger quartile (for example, Q3 over Q2). If category-level quartiles are unavailable, it falls back to SCImago's SJR Best Quartile field.
+- **Publications closest to the next h-index**, with full bibliographic formatting and clickable DOI links.
+- **Local metadata caching** to speed up repeated analytics runs.
+- **Word export** for analytics and detailed h-index reports.
+
+---
+
+## Typical use cases
+
+ScienceTracker may be useful if you want to:
+
+- see your publication count, citations, and h-index without repeatedly opening several academic websites;
+- monitor Google Scholar citations automatically;
+- monitor Scopus author metrics;
+- compare Google Scholar, Scopus, and OpenAlex coverage;
+- receive a notification when your citation count or h-index changes;
+- keep a local history of academic metrics;
+- review which publications are closest to increasing your h-index;
+- generate bibliometric reports from your publication data.
+
+---
+
+## Frequently Asked Questions
+
+### How can I track my h-index automatically?
+
+ScienceTracker can periodically monitor h-index values from supported academic sources and notify you when a monitored value changes.
+
+### Is there a free app for monitoring Google Scholar citations?
+
+Yes. ScienceTracker is free to use and can monitor publication totals, citation counts, and h-index values from a researcher's public Google Scholar profile.
+
+### Can I monitor Google Scholar, Scopus, and OpenAlex together?
+
+Yes. ScienceTracker supports Google Scholar, Scopus, and OpenAlex in one Windows application. It keeps metrics from each source separate because the databases have different publication and citation coverage.
+
+### Can ScienceTracker notify me when my citation count changes?
+
+Yes. ScienceTracker can display Windows notifications when monitored citation counts, publication totals, h-index values, or tracked publication data change. Optional Telegram notifications are also available.
+
+### Does ScienceTracker require a Scopus API key?
+
+A valid Scopus API key is required **only if Scopus monitoring is enabled**. Google Scholar, OpenAlex, and ORCID do not require a Scopus API key. Available Scopus data may also depend on the user's Elsevier access and institutional authorization.
+
+### Does ScienceTracker run in the background?
+
+Yes. ScienceTracker can run in the Windows system tray and periodically check selected academic profiles.
+
+### Is ScienceTracker free?
+
+Yes. ScienceTracker is free to use.
+
+### Does ScienceTracker combine citation counts from different databases?
+
+No. Google Scholar, Scopus, and OpenAlex index different sets of publications and citations, so ScienceTracker keeps source-specific metrics separate.
+
+---
+
+## ⚠️ Parsing Limitations & Technical Notes
+
+Automated web data extraction comes with platform-specific constraints:
+
+1. **Google Scholar (High Anti-Bot Strictness):** Google Scholar actively detects automated traffic. Querying Scholar too frequently may lead to temporary IP blocks or CAPTCHA challenges.
+2. **Scopus:** ScienceTracker updates Scopus data through the official Scopus API. A valid API key is required, and available data may depend on the user's Elsevier access, institutional subscription, and network authorization.
+3. **OpenAlex (Official REST API):** Used for profile metrics and as a fallback metadata source where appropriate.
+4. **Crossref & SCImago:** Used to enrich publication metadata and determine journal quartiles where reliable matches are available. Supporting metadata are cached locally to improve performance.
+
+---
+
+## ⏱️ Recommended Update Intervals
+
+ScienceTracker allows a configurable automatic check interval of **1 hour or more**. The current default is **1 hour**. Values below 1 hour are rejected by the application. Academic profiles usually change much less frequently, and Google Scholar in particular may temporarily restrict automated requests when checked too often.
+
+| Interval | Recommendation |
+| :--- | :--- |
+| **12 – 24 Hours** | Most conservative choice for Google Scholar and long-term background monitoring. |
+| **6 – 12 Hours** | Good balance between responsiveness and low request frequency. |
+| **1 – 6 Hours** | Supported when faster monitoring is important, but repeated Google Scholar requests may increase the chance of temporary rate limiting. |
+
+> **Tip:** If Google Scholar begins returning CAPTCHA or temporary access errors, increase the check interval.
+
+> [!CAUTION]
+> **System Requirements & First-Launch Notice**
+> - **Supported:** Windows 10 and Windows 11 (64-bit).
+> - **Not supported:** Windows 7, 8, 8.1, or any 32-bit (x86) versions of Windows.
+>
+> Since the `.exe` file is built using PyInstaller and does not have a paid Code Signing Certificate, Windows SmartScreen may display a warning on the first launch: *"Windows protected your PC"* (*"Unknown Publisher"*).
+>
+> **To run the app:** Click **More info** → **Run anyway**.
+
+---
+
+## 🚀 ScienceTracker on Product Hunt
+
+ScienceTracker is also listed on Product Hunt:
+
+[https://www.producthunt.com/products/sciencetracker?launch=sciencetracker](https://www.producthunt.com/products/sciencetracker?launch=sciencetracker)
+
+---
+
+## 📞 Support & Contact
+
+ScienceTracker is independently developed and maintained by a single developer. Direct support is provided on a **best-effort basis** alongside the developer's primary professional work, so response times may vary.
+
+For the fastest assistance:
+
+1. **Check this README and the troubleshooting notes first.**
+2. **Ask an AI assistant such as ChatGPT.** Providing the exact ScienceTracker error message, a screenshot, or a clear description of the problem can often help diagnose the issue.
+3. **Contact the developer if the issue remains unresolved or appears to be specific to ScienceTracker itself.**
+
+When using an AI assistant, do **not** share API keys, Institutional Tokens, passwords, or other private credentials.
+
+- **Email Support:** [chyc77@gmail.com](mailto:chyc77@gmail.com)
+- **GitHub Issues:** You can also open an issue directly in this repository.
+
+---
+
+## ⚖️ Privacy Policy & Terms of Service
+
+- **Privacy Policy:** ScienceTracker processes public academic data and metadata available through Google Scholar, Scopus, OpenAlex, Crossref, and SCImago where applicable. The application does not intentionally collect or sell personal user telemetry, passwords, or academic-service credentials. Metrics history and analytics data are stored locally on the user's device. If Telegram notifications are enabled, the ScienceTracker notification service stores the minimum connection information required to associate the installation with the connected Telegram account and deliver notifications.
+- **Terms of Service:** ScienceTracker is independently developed and distributed under the ScienceTracker brand and is provided "as is". Third-party academic services and APIs are controlled by their respective providers, and users are responsible for complying with those providers' terms and access requirements.
+
+---
+
+*&copy; 2026 ScienceTracker. All rights reserved.*
