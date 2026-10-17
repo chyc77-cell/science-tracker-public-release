@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="ScienceTracker help and FAQ: install on Windows, set up Scopus, Google Scholar and ORCID, understand SCImago quartiles, publication statistics, self-citation estimates, reports, Telegram and troubleshooting." name="description"/>
+  <title>
+   Help &amp; FAQ — ScienceTracker | Scopus, Scholar and ORCID
+  </title>
+  <link href="https://chyc77-cell.github.io/science-tracker-public-release/faq.html" rel="canonical"/>
+  <style>
+   :root{color-scheme:light;--ink:#17243b;--muted:#50637a;--blue:#2563eb;--line:#dfe7f2;--bg:#f7f9fd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+a{color:#1d4ed8}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+.wrap{width:min(1080px,calc(100% - 36px));margin:0 auto}.top{background:white;border-bottom:1px solid var(--line)}.top-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:12px 0}.brand{text-decoration:none;font-weight:800;font-size:1.15rem;color:#15243b}.top nav{display:flex;gap:20px;flex-wrap:wrap}.top nav a{text-decoration:none;font-weight:600;font-size:.94rem}
+.hero{padding:50px 0 22px}.eyebrow{letter-spacing:.1em;color:#2359b1;font-size:.78rem;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:10px 0}.hero p{color:var(--muted);max-width:750px}.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #a9c2e8;border-radius:12px;padding:9px 16px;margin:20px 0 9px;box-shadow:0 8px 22px rgba(28,58,110,.06)}.search input{font:inherit;flex:1;border:0;outline:0;padding:8px;min-width:0}.hint{color:var(--muted);font-size:.87rem}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;padding:18px 0 65px}.sidebar{align-self:start;position:sticky;top:20px}.sidebar b{display:block;margin-bottom:10px}.sidebar a{display:block;text-decoration:none;color:#304861;padding:8px 12px;border-radius:8px;font-size:.91rem}.sidebar a:hover{background:#e8f0ff;color:#174eae}.section{margin:0 0 28px;background:white;border:1px solid var(--line);border-radius:14px;padding:20px 23px}.section h2{font-size:1.4rem;margin:0 0 16px}.section details{border-top:1px solid var(--line);padding:13px 0}.section details:first-of-type{border-top:0}.section summary{cursor:pointer;font-weight:650;list-style:none;display:flex;gap:12px;justify-content:space-between}.section summary::-webkit-details-marker{display:none}.section summary::after{content:'+';color:#2563eb;font-size:1.4rem;line-height:1}.section details[open] summary::after{content:'−'}.answer{color:#46586f;padding:5px 28px 4px 0;font-size:.96rem}.answer p{margin:8px 0}.answer code{background:#f0f4fa;border-radius:4px;padding:1px 4px;font-size:.88rem}.no-results{background:white;border-radius:10px;padding:20px;border:1px solid var(--line)}.footer{padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.footer a{margin-right:18px}
+@media(max-width:740px){.layout{display:block}.sidebar{position:static;display:flex;flex-wrap:wrap;gap:4px 9px;margin-bottom:16px}.sidebar b{width:100%}.sidebar a{padding:5px 7px}.section{padding:17px}.top-inner{gap:6px}.hero{padding-top:30px}}
+  </style>
+ </head>
+ <body>
+  <header class="top">
+   <div class="wrap top-inner">
+    <a class="brand" href="index.html">
+     ScienceTracker
+    </a>
+    <nav aria-label="Main navigation">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="index.html#download">
+      Download
+     </a>
+     <a aria-current="page" href="faq.html">
+      Help &amp; FAQ
+     </a>
+     <a href="https://github.com/chyc77-cell/science-tracker-public-release#readme">
+      Documentation ↗
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main class="wrap">
+   <div class="hero">
+    <div class="eyebrow">
+     Support center
+    </div>
+    <h1>
+     Help &amp; Frequently Asked Questions
+    </h1>
+    <p>
+     Set up Scopus, Google Scholar and ORCID; understand publication statistics and SCImago quartiles; and resolve common monitoring, installation and reporting questions.
+    </p>
+    <label class="search" for="faq-search">
+     ⌕
+     <input autocomplete="off" id="faq-search" placeholder="Search questions (e.g. ORCID, Scopus API, quartiles, Telegram)…" type="search"/>
+    </label>
+    <div aria-live="polite" class="hint" id="count">
+    </div>
+   </div>
+   <div class="layout">
+    <aside aria-label="FAQ topics" class="sidebar">
+     <b>
+      Browse topics
+     </b>
+     <a href="#start">
+      Getting started
+     </a>
+     <a href="#profiles">
+      Profiles, identifiers and API access
+     </a>
+     <a href="#statistics">
+      Statistics, quartiles and publication analysis
+     </a>
+     <a href="#notifications">
+      Notifications, updates and other tools
+     </a>
+     <a href="#troubleshooting">
+      Troubleshooting, storage and privacy
+     </a>
+    </aside>
+    <div id="faq-sections">
+     <section class="section" data-topic="" id="start">
+      <h2>
+       Getting started
+      </h2>
+      <details data-question="" id="start-1">
+       <summary>
+        How do I install ScienceTracker?
+       </summary>
+       <div class="answer">
+        <p>
+         Download the latest release from the
+         <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest">
+          official GitHub Releases page
+         </a>
+         . If provided as a ZIP, extract it and run
+         <code>
+          ScienceTracker_Setup.exe
+         </code>
+         . Launch from the Windows Start menu or desktop shortcut. ScienceTracker normally runs in the
+         <strong>
+          system tray
+         </strong>
+         ; check hidden tray icons if the main window is not visible.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="start-2">
+       <summary>
+        What do I need before the first launch?
+       </summary>
+       <div class="answer">
+        <p>
+         Windows 10 or 11 (64-bit), an internet connection and the identifiers you plan to use. For Scopus, enter a numeric
+         <strong>
+          Scopus Author ID
+         </strong>
+         and an Elsevier
+         <strong>
+          API key
+         </strong>
+         . For Google Scholar, enter the profile's
+         <code>
+          user=
+         </code>
+         ID. For ORCID, enter the complete
+         <strong>
+          ORCID iD
+         </strong>
+         . You can configure sources independently; the full set of IDs gives the most complete Scopus and cross-source features.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="start-3">
+       <summary>
+        Where can I find the profile IDs?
+       </summary>
+       <div class="answer">
+        <p>
+         <strong>
+          Scopus:
+         </strong>
+         the numeric Scopus Author ID, not a publication EID.
+         <strong>
+          Google Scholar:
+         </strong>
+         the value following
+         <code>
+          user=
+         </code>
+         in your public profile URL.
+         <strong>
+          ORCID:
+         </strong>
+         a 16-character identifier with check digit, such as
+         <code>
+          0000-0002-1835-0097
+         </code>
+         . Enter the identifier, not the full URL.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="start-4">
+       <summary>
+        Where is the main window and what is the difference between Statistics and Reports?
+       </summary>
+       <div class="answer">
+        <p>
+         Open the application from the Windows notification-area icon. The main dashboard displays
+         <strong>
+          Scopus
+         </strong>
+         ,
+         <strong>
+          Google Scholar
+         </strong>
+         , and
+         <strong>
+          ORCID
+         </strong>
+         .
+         <strong>
+          Statistics
+         </strong>
+         opens source-specific publications and charts for a selected year range;
+         <strong>
+          Reports
+         </strong>
+         creates structured Word documents. The app's main window also includes recent changes and access to Scopus Coverage and other tools.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="start-5">
+       <summary>
+        How do I update the program?
+       </summary>
+       <div class="answer">
+        <p>
+         Use the built-in update check when available or download the most recent installer from
+         <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest">
+          GitHub Releases
+         </a>
+         . Current installations normally keep local history under
+         <code>
+          %LOCALAPPDATA%\ScienceTracker
+         </code>
+         . If upgrading from an older installation under
+         <code>
+          Program Files
+         </code>
+         , Windows may request one-time administrator authorization to remove it. Back up local data before changing installation methods.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="start-6">
+       <summary>
+        Is ScienceTracker free, and does it require a license?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker is free. Core application features do not require purchasing a license or activating a trial. Some external services, especially Scopus, impose their own API and subscription access rules; these are separate from ScienceTracker licensing.
+        </p>
+       </div>
+      </details>
+     </section>
+     <section class="section" data-topic="" id="profiles">
+      <h2>
+       Profiles, identifiers and API access
+      </h2>
+      <details data-question="" id="profiles-1">
+       <summary>
+        Which academic sources appear in ScienceTracker?
+       </summary>
+       <div class="answer">
+        <p>
+         The visible research profiles are
+         <strong>
+          Scopus
+         </strong>
+         ,
+         <strong>
+          Google Scholar
+         </strong>
+         and
+         <strong>
+          ORCID
+         </strong>
+         . OpenAlex is not a selectable statistics or reports profile; it remains an
+         <strong>
+          internal bibliographic source
+         </strong>
+         for matching, selected metadata checks and estimated Scopus self-citations. SCImago and Crossref are supporting sources, not separately monitored author profiles.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-2">
+       <summary>
+        Why is OpenAlex no longer shown? Is it still used?
+       </summary>
+       <div class="answer">
+        <p>
+         To make the dashboard easier to understand, OpenAlex's own author citation counts, h-index and statistics were removed from the visible interface.
+         <strong>
+          Its useful background procedures remain.
+         </strong>
+         ScienceTracker can resolve an OpenAlex author using the ORCID iD supplied in Settings, reuse its bibliographic records, and use OpenAlex citation relationships to estimate self-citations for matched Scopus works. An OpenAlex author profile and a public ORCID works list are not the same dataset.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-3">
+       <summary>
+        Why does Scopus require an API key?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker retrieves Scopus metrics and publications through the official Elsevier API. Request a key at
+         <a href="https://dev.elsevier.com/" rel="noopener" target="_blank">
+          dev.elsevier.com
+         </a>
+         ; a link appears next to the API key field in Settings. A key does not guarantee access to every Elsevier endpoint: entitlements and possible institutional authorization control which data can be retrieved.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-4">
+       <summary>
+        Scopus works at my institution but not at home. What should I check?
+       </summary>
+       <div class="answer">
+        <p>
+         Elsevier API permissions can depend on the API key, institution, network, subscription and authorization method. Confirm the exact HTTP error and endpoint. If your institution provides an
+         <strong>
+          Institutional Token
+         </strong>
+         , enter it in the optional field; otherwise contact Elsevier or your institution to clarify access. Registering a new personal key
+         <strong>
+          does not necessarily
+         </strong>
+         grant off-campus institutional privileges.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-5">
+       <summary>
+        Is the Scopus API key or ORCID iD mandatory for all functions?
+       </summary>
+       <div class="answer">
+        <p>
+         No. Google Scholar can be monitored independently. Scopus features require a working Scopus ID and API key. ORCID public-work features need the ORCID iD. Advanced Scopus matching and self-citation estimation benefit from ORCID-resolved background OpenAlex data. The Settings hint is a
+         <strong>
+          local completeness reminder
+         </strong>
+         : it disappears when the IDs pass format checks and the API-key field is nonempty; it does not test whether the API key has server-side access.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-6">
+       <summary>
+        Why do my Scopus, Google Scholar and ORCID publication totals differ?
+       </summary>
+       <div class="answer">
+        <p>
+         They cover different subsets of work. Scopus and Scholar track publications with their own indexing rules; ORCID lists publicly visible works recorded in the researcher's ORCID profile. Works may be missing, private, duplicated or typed differently.
+         <strong>
+          ORCID does not provide citation totals or an h-index.
+         </strong>
+         ScienceTracker does not add together unlike metrics or assume that ORCID and OpenAlex contain identical works.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-7">
+       <summary>
+        Why does Google Scholar sometimes fail to refresh?
+       </summary>
+       <div class="answer">
+        <p>
+         Google Scholar does not offer a guaranteed public researcher-profile API for this use case. Rate limits, CAPTCHA challenges, profile privacy and website changes can prevent automated updates. Check that your public profile loads in a browser, increase the checking interval and retry later. A failed refresh is
+         <strong>
+          not
+         </strong>
+         zero citations.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="profiles-8">
+       <summary>
+        How is the ORCID publication list obtained?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker retrieves publicly visible ORCID works and caches the list for reuse by Statistics and Scopus Coverage. It currently reads the ORCID site's public
+         <code>
+          worksPage.json
+         </code>
+         interface, which is
+         <strong>
+          not the stable official Public API
+         </strong>
+         and could change without notice. Records that are not public cannot be recovered from the public listing.
+        </p>
+       </div>
+      </details>
+     </section>
+     <section class="section" data-topic="" id="statistics">
+      <h2>
+       Statistics, quartiles and publication analysis
+      </h2>
+      <details data-question="" id="statistics-1">
+       <summary>
+        What does each profile show in the main window?
+       </summary>
+       <div class="answer">
+        <p>
+         <strong>
+          Scopus
+         </strong>
+         shows publication count, citations, h-index, progress to the next h-index, Scopus Coverage and estimated self-citations.
+         <strong>
+          Google Scholar
+         </strong>
+         shows publications, citations, h-index and the next-h-index progress.
+         <strong>
+          ORCID
+         </strong>
+         shows the total number of public works and counts in Articles, Abstracts (conference outputs), Books and Other. ORCID has no citation-based gauges.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-2">
+       <summary>
+        What statistics and charts are available for Scopus?
+       </summary>
+       <div class="answer">
+        <p>
+         Selected-year publication lists, citations, available document types, DOI, open-access indicators and SCImago quartiles; publications closest to increasing h-index; charts for works/citations, available h-index history, publication quartiles and exact citation-count distribution. Some charts require enough source or locally retained data.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-3">
+       <summary>
+        How does Google Scholar Statistics work now?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker displays the already retrieved publication list, available citation data, citation distributions and publications closest to raising h-index.
+         <strong>
+          It no longer performs automatic article/other classification or SCImago quartile determination for Google Scholar.
+         </strong>
+         When the profile supplies a DOI, it is clickable. If DOI is missing but an identifiable citation record is available, the app can link directly to that Google Scholar record.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-4">
+       <summary>
+        What does ORCID Statistics include?
+       </summary>
+       <div class="answer">
+        <p>
+         Public ORCID works for the selected publication-year range, a
+         <strong>
+          histogram of works by publication year
+         </strong>
+         , and a chart of
+         <strong>
+          Articles / Abstracts / Books / Other
+         </strong>
+         . Works with no year are not assigned an artificial date. Neither citations nor h-index nor SCImago quartiles are included. Statistics can be copied, opened in HTML and exported to Word.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-5">
+       <summary>
+        What counts as an ORCID “Abstract”?
+       </summary>
+       <div class="answer">
+        <p>
+         The interface's
+         <strong>
+          Abstracts
+         </strong>
+         category groups conference-related ORCID work types: conference abstracts, papers, posters, presentations, proceedings and other conference outputs. It is an umbrella label; not all of those items are literally abstracts. Articles include journal/magazine/newspaper articles and reviews; Books include books, chapters, edited books and book reviews; all other native work types fall into Other. Categories are mutually exclusive and the original ORCID type is preserved.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-6">
+       <summary>
+        How are SCImago quartiles calculated?
+       </summary>
+       <div class="answer">
+        <p>
+         <strong>
+          Only Scopus works classified as journal articles
+         </strong>
+         undergo SCImago matching. ScienceTracker matches the publication year and journal (ISSN first, then suitable title matching) against the appropriate annual catalog. If a journal has several subject-category quartiles, it selects the
+         <strong>
+          most frequent quartile
+         </strong>
+         ; a tie is resolved in favor of the
+         <strong>
+          worse
+         </strong>
+         quartile (for example, Q3 rather than Q2). This derived value is
+         <strong>
+          not necessarily
+         </strong>
+         the site's SJR Best Quartile.
+         If subject-category quartiles are missing, ScienceTracker can use the catalog's Best Quartile field as a fallback; this fallback cannot establish whether the categories disagree.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-7">
+       <summary>
+        What does an asterisk next to a quartile (for example, Q2*) mean?
+       </summary>
+       <div class="answer">
+        <p>
+         An asterisk means the journal has
+         <strong>
+          different quartiles in different subject categories for that publication year
+         </strong>
+         . The automatically chosen quartile still follows the normal majority/tie rule, but the value relevant to an individual paper needs
+         <strong>
+          manual verification
+         </strong>
+         . The explanatory note is shown after the publication list and in supported exports. Several categories that all share the same Q do not require the asterisk.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-8">
+       <summary>
+        Why does an article have no quartile, and why can first-time resolution be slow?
+       </summary>
+       <div class="answer">
+        <p>
+         Possible causes include missing or inconsistent ISSN/title metadata, journals absent from that year's SCImago catalog, and items classified as non-journal publications. A first-time run may download full
+         <strong>
+          annual SCImago catalogs
+         </strong>
+         for multiple publication years; it can take a while even for a modest number of works. Recent versions optimize matching and cache results, but connectivity and SCImago response times still matter. “No quartile” is not a quality judgement.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-9">
+       <summary>
+        What does “closest to the next h-index” mean?
+       </summary>
+       <div class="answer">
+        <p>
+         For Scopus and Google Scholar, ScienceTracker identifies existing works whose additional citations would contribute to reaching the
+         <strong>
+          next
+         </strong>
+         h-index threshold. It is a mathematical calculation based on available per-publication citations,
+         <strong>
+          not a prediction
+         </strong>
+         of future citations. ORCID cannot offer this calculation because it has no citation data.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-10">
+       <summary>
+        Why does my Scopus chart say “Citation Overview unavailable”?
+       </summary>
+       <div class="answer">
+        <p>
+         The Scopus Citation Overview API can require access permissions that are not included with a given API key. If available, calendar-year citation counts may be used. Otherwise the chart shows the
+         <strong>
+          current number of citations to works grouped by their publication year
+         </strong>
+         — not the number of citations actually received in each calendar year. These two measures are different; the chart includes an explanatory fallback note.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-11">
+       <summary>
+        How are Scopus self-citations estimated?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker matches Scopus publications to OpenAlex records and examines OpenAlex citing/cited-work relationships and author IDs. It reports an
+         <strong>
+          estimate
+         </strong>
+         , not an official Scopus self-citation measure, and shows information about matched-work coverage. This analysis can make OpenAlex API requests but caches prior results to avoid unnecessary recomputation.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-12">
+       <summary>
+        What is Scopus Coverage?
+       </summary>
+       <div class="answer">
+        <p>
+         The Scopus Coverage window contains
+         <strong>
+          Google Scholar
+         </strong>
+         and
+         <strong>
+          ORCID
+         </strong>
+         tabs. It matches candidate works to your Scopus profile using bibliographic evidence and identifies likely matches, uncertain cases and records worth checking. It cannot modify Scopus, and absence of a match does not prove a work should be indexed. Some deeper checks can require external requests, depending on the chosen procedure.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-13">
+       <summary>
+        Why can a Scopus paper have no DOI or show “Closed access” even if the publisher provides it?
+       </summary>
+       <div class="answer">
+        <p>
+         The Scopus API and publisher metadata can be incomplete or disagree. ScienceTracker can attempt a conservative local-only refinement using
+         <strong>
+          already downloaded OpenAlex records and a local Crossref cache
+         </strong>
+         , without making new requests as part of that refinement. If no reliable match exists locally, the original source data remain. Open Access labels across databases can differ, so check the publisher before drawing a definitive conclusion.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="statistics-14">
+       <summary>
+        Can I export statistics and reports?
+       </summary>
+       <div class="answer">
+        <p>
+         Yes. Profile Statistics supports copy, HTML viewing and Word export, with appropriate charts. The separate
+         <strong>
+          Reports
+         </strong>
+         tool creates a Research Activity Report, Selected Research Outputs report (five or ten works) or Research Impact Snapshot. Scopus and Google Scholar have citation-related fields;
+         <strong>
+          ORCID reports do not invent citations or h-index
+         </strong>
+         . OpenAlex is not a report-source choice.
+        </p>
+       </div>
+      </details>
+     </section>
+     <section class="section" data-topic="" id="notifications">
+      <h2>
+       Notifications, updates and other tools
+      </h2>
+      <details data-question="" id="notifications-1">
+       <summary>
+        How do I connect Telegram?
+       </summary>
+       <div class="answer">
+        <p>
+         Open
+         <strong>
+          Settings → Telegram notifications
+         </strong>
+         , select
+         <strong>
+          Connect Telegram
+         </strong>
+         , follow the generated link and start the bot. Sign in to your Telegram account in the browser or desktop app before connecting. Use
+         <strong>
+          Send test
+         </strong>
+         when the status shows Connected. If an attempt was not completed or failed, the connection button becomes available for another attempt.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="notifications-2">
+       <summary>
+        Will I receive duplicate Telegram alerts from home and work PCs?
+       </summary>
+       <div class="answer">
+        <p>
+         With the compatible ScienceTracker app and notification backend, the same reported metric state is intended to be sent once per connected Telegram account, even across multiple computers. The PCs maintain separate local histories, so this is
+         <strong>
+          not
+         </strong>
+         profile synchronization. A previous installation or unexpected backend behavior may differ.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="notifications-3">
+       <summary>
+        Why did Windows notify me without a Telegram message?
+       </summary>
+       <div class="answer">
+        <p>
+         Windows and Telegram are different notification channels. Check the Telegram connection, send a test, and confirm your network works. The backend may deliberately suppress an event already delivered from another PC. Test notifications are separate from metric-change deduplication.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="notifications-4">
+       <summary>
+        How often does ScienceTracker check profiles?
+       </summary>
+       <div class="answer">
+        <p>
+         You can choose an interval of
+         <strong>
+          one hour or more
+         </strong>
+         . Faster checking increases the risk of provider-side rate limits, particularly for Google Scholar and some OpenAlex operations. Longer intervals are often more reliable for background monitoring.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="notifications-5">
+       <summary>
+        What is the National System of Researchers of Ukraine field?
+       </summary>
+       <div class="answer">
+        <p>
+         An optional application number in Settings can be used for the separate
+         <strong>
+          National System of Researchers of Ukraine
+         </strong>
+         ranking display when public source information is available. It is not required to retrieve Scopus, Scholar or ORCID records, nor for SCImago quartile resolution.
+        </p>
+       </div>
+      </details>
+     </section>
+     <section class="section" data-topic="" id="troubleshooting">
+      <h2>
+       Troubleshooting, storage and privacy
+      </h2>
+      <details data-question="" id="troubleshooting-1">
+       <summary>
+        Why does Windows SmartScreen show “Unknown Publisher”?
+       </summary>
+       <div class="answer">
+        <p>
+         The GitHub installer may not have a digital code-signing certificate. A SmartScreen warning alone does not prove the installer is safe or malicious. Download from
+         <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest">
+          official Releases
+         </a>
+         , verify the file's origin and proceed only if you trust it.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-2">
+       <summary>
+        Why are some statistics or charts not available on first launch?
+       </summary>
+       <div class="answer">
+        <p>
+         A new installation has no local source history or cached publication data. Allow the initial Scopus/Scholar/ORCID refresh to complete. The ORCID statistics loader waits for the existing background public-works request rather than intentionally starting a second one. SCImago imports can continue after basic metrics appear. If an upstream source fails, its statistics may remain unavailable until a later successful update.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-3">
+       <summary>
+        Where are my data and diagnostic logs stored?
+       </summary>
+       <div class="answer">
+        <p>
+         ScienceTracker stores history and caches under
+         <code>
+          %LOCALAPPDATA%\ScienceTracker\
+         </code>
+         . The principal history file is
+         <code>
+          stats_history.json
+         </code>
+         (a
+         <code>
+          .bak
+         </code>
+         backup may also exist); the SQLite cache is
+         <code>
+          science_tracker_cache.sqlite3
+         </code>
+         and diagnostics are written to
+         <code>
+          update_diagnostics.log
+         </code>
+         . Back up the whole directory before manual troubleshooting; uninstalling and reinstalling should not be treated as a backup strategy.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-4">
+       <summary>
+        Why are two ScienceTracker installations listed in Windows?
+       </summary>
+       <div class="answer">
+        <p>
+         Older releases could install for all users under
+         <code>
+          Program Files
+         </code>
+         , while newer releases install for the current user. A migration-enabled installer attempts to remove legacy copies. Windows may require
+         <strong>
+          one-time administrator approval
+         </strong>
+         to remove a machine-wide copy; it cannot always be done without elevated privileges. Do not manually remove your data folder while resolving duplicates.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-5">
+       <summary>
+        Can ScienceTracker restore all the metrics I had on another PC?
+       </summary>
+       <div class="answer">
+        <p>
+         No automatic cloud history synchronization is provided. Each PC keeps its own historical snapshots and caches. If you need to move history, preserve the original files and backups carefully rather than overwriting current data without checking. Telegram deduplication is only a notification-delivery feature.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-6">
+       <summary>
+        What data are sent to Telegram or external academic services?
+       </summary>
+       <div class="answer">
+        <p>
+         The selected academic sources receive retrieval requests according to their respective APIs and websites. For Telegram, the optional backend processes the identifiers and account-linking/alert information required for notifications. Local citation-history files are
+         <strong>
+          not
+         </strong>
+         synchronized through Telegram. Do not publish Scopus API keys, Institutional Tokens or connection tokens in support requests.
+        </p>
+       </div>
+      </details>
+      <details data-question="" id="troubleshooting-7">
+       <summary>
+        Where should I report bugs or request help?
+       </summary>
+       <div class="answer">
+        <p>
+         Use
+         <a href="https://github.com/chyc77-cell/science-tracker-public-release/issues" rel="noopener" target="_blank">
+          GitHub Issues
+         </a>
+         or the support address in the README. Include ScienceTracker version, Windows version, relevant profile (Scopus, Google Scholar or ORCID), exact error text, steps to reproduce, and screenshots if helpful. Remove keys and other private credentials before sharing logs or screenshots.
+        </p>
+       </div>
+      </details>
+     </section>
+     <p class="no-results" hidden="" id="no-results">
+      No matching questions. Try a different keyword, or
+      <a href="https://github.com/chyc77-cell/science-tracker-public-release/issues">
+       ask for help on GitHub
+      </a>
+      .
+     </p>
+    </div>
+   </div>
+  </main>
+  <footer class="footer">
+   <div class="wrap">
+    <a href="index.html">
+     ScienceTracker home
+    </a>
+    <a href="https://github.com/chyc77-cell/science-tracker-public-release/releases/latest">
+     Latest release
+    </a>
+    <a href="https://github.com/chyc77-cell/science-tracker-public-release/issues">
+     Report an issue
+    </a>
+    <span>
+     Independent, free Windows application for researchers.
+    </span>
+   </div>
+  </footer>
+  <script>
+   const field=document.querySelector('#faq-search'), count=document.querySelector('#count');
+function filterQuestions(){const query=field.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('[data-topic]').forEach(section=>{let n=0;section.querySelectorAll('[data-question]').forEach(detail=>{const match=detail.textContent.toLocaleLowerCase().includes(query);detail.hidden=!match;if(match){n++;visible++} if(query)detail.open=false});section.hidden=!n});document.querySelector('#no-results').hidden=visible>0;count.textContent=visible+' question'+(visible===1?'':'s')+' available';}
+field.addEventListener('input',filterQuestions);filterQuestions();
+  </script>
+ </body>
+</html>
